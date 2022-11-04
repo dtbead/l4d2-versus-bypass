@@ -2,7 +2,7 @@ $L4D2Path = "C:\Program Files (x86)\Steam\steamapps\common\Left 4 Dead 2"
 $VPKPath = "C:\Program Files (x86)\Steam\steamapps\common\Left 4 Dead 2\bin\vpk.exe"
 
 $GameInfoHash = (Get-FileHash -LiteralPath "$L4D2Path\left4dead2\gameinfo.txt" -Algorithm MD5).hash
-if ($GameInfoHash -ne "5706AC72AF0EF96E68A43103A42FBB86") {
+if ($GameInfoHash -ne "C5DA43521F5A9B9514659BFD370A436C") {
     Write-Output "Patching 'gameinfo.txt'"
     Copy-Item -LiteralPath ".\gameinfo.txt" -Destination "$L4D2Path\left4dead2\gameinfo.txt"
 }

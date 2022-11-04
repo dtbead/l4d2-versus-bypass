@@ -41,11 +41,11 @@
 		//
 		SearchPaths
 		{
+			Game				left4dead2_mods
 			Game				update
 			Game				left4dead2_dlc3
 			Game				left4dead2_dlc2
 			Game				left4dead2_dlc1
-			Game				left4dead2_mods
 			Game				|gameinfo_path|.
 			Game				hl2
 		}

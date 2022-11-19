@@ -9,7 +9,8 @@ if ($GameInfoHash -ne "C5DA43521F5A9B9514659BFD370A436C") {
 
 if ((Test-Path "$L4D2Path\left4dead2_mods") -eq $false ) {
     Write-Output "Creating 'left4dead2_mods' directory"
-    New-Item -ItemType Directory -Path "$L4D2Path\left4dead2_mods" | Out-Null
+    New-Item -ItemType Directory -Path "$L4D2Path\left4dead2_mods"
+	Write-Output "Finished creating 'left4dead2_mods' directory"
 }
 
 [regex]::Matches((Get-Content -LiteralPath "$L4D2Path\left4dead2\addonlist.txt"), '"([^"]+)"\s+?"1"') | ForEach-Object {
@@ -19,12 +20,14 @@ Write-Output "Found $($Addons.Count) enabled addons"
 
 if ((Test-Path "$L4D2Path\left4dead2_mods\pak01_dir") -eq $false ) {
     Write-Output "Creating 'pak01_dir' directory"
-    New-Item -ItemType Directory -Path "$L4D2Path\left4dead2_mods\pak01_dir" | Out-Null
+    New-Item -ItemType Directory -Path "$L4D2Path\left4dead2_mods\pak01_dir"
+	Write-Output "Finished creating 'pak01_dir' directory"
+
 }
 
 $Addons | ForEach-Object {
     Write-Output "Unpacking $_"
-    &$VPKPath "$L4D2Path\left4dead2\addons\$_" | Out-Null  
+    &$VPKPath "$L4D2Path\left4dead2\addons\$_"
 }
 
 $Addons | ForEach-Object {
@@ -36,13 +39,14 @@ $Addons | ForEach-Object {
             Remove-Item $_.FullName
             return
         }
-        Move-Item -LiteralPath $_.FullName -Destination "$L4D2Path\left4dead2_mods\pak01_dir\$($_.Name)" | Out-Null
+        Move-Item -LiteralPath $_.FullName -Destination "$L4D2Path\left4dead2_mods\pak01_dir\" | Out-Null
     }
+	Write-Output "Finished moving $AddonFolder"
 }
 
 $Addons | ForEach-Object {
     $AddonFolder = $_.Trim(".vpk")
-    Remove-Item "$L4D2Path\left4dead2\addons\$AddonFolder"
+    Remove-Item -Recurse"$L4D2Path\left4dead2\addons\$AddonFolder"
 }
 
 Set-Location "$L4D2Path\left4dead2_mods"

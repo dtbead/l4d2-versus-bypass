@@ -41,7 +41,7 @@ $Addons | ForEach-Object {
 
 $Addons | ForEach-Object {
     $AddonFolder = $_.Trim(".vpk")
-    Remove-Item -Recurse"$L4D2Path\left4dead2\addons\$AddonFolder"
+    Remove-Item -Recurse "$L4D2Path\left4dead2\addons\$AddonFolder"
 }
 
 Set-Location "$L4D2Path\left4dead2_mods"

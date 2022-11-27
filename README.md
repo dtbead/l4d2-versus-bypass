@@ -4,6 +4,7 @@ This script automates the entire process of bypassing the versus addon restricti
 
 # Usage
 Replace `C:\Program Files (x86)\Steam\steamapps\common\Left 4 Dead 2\left4dead2\gameinfo.txt` with the `gameinfo.txt` in this repository.
+
 Run `bypass.ps1` and let the script do its thing. Most errors related to moving files can be safely ignored.
 
 # Notes
